@@ -38,7 +38,9 @@ impl Vector {
     
     // Scales the Vector by a scalar value in place.
     pub fn scl(&mut self, scalar: f32) {
-       
+       // Ensure the scalar is not zero.
+        assert!(scalar != 0.0);
+
         for value in &mut self.data {
             *value *= scalar;
         }
