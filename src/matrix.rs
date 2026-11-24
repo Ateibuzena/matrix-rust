@@ -88,10 +88,19 @@ impl Matrix {
     pub fn scl(&mut self, scalar: f32) {
         // Ensure the scalar is not zero.
         assert!(scalar != 0.0);
-        
+
         // Iterate over each element in the matrix and scale it by the given scalar.
         for value in &mut self.data {
             *value *= scalar;
+        }
+    }
+
+    pub fn print(&self) {
+        for row in 0..self.rows {
+            for col in 0..self.cols {
+                print!("{} ", self.get(row, col));
+            }
+            println!();
         }
     }
 }
