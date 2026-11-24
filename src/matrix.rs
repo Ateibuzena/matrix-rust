@@ -6,11 +6,10 @@ pub struct Matrix {
 }
 
 impl Matrix {
-
     // Creates a new Matrix with the given dimensions and data.
     pub fn new(rows: usize, cols: usize, data: Vec<f32>) -> Self {
         // Ensure the data length matches the specified dimensions.
-        assert_eq!(data.len(), rows * cols); 
+        assert_eq!(data.len(), rows * cols);
 
         // Initialize the Matrix with the provided rows, columns, and data.
         Self { rows, cols, data }
@@ -40,7 +39,7 @@ impl Matrix {
         assert!(row < self.rows && col < self.cols);
 
         // Get the index for the specified row and column.
-        let index = self.index(row, col);  
+        let index = self.index(row, col);
 
         // Return the value at the calculated index.
         self.data[index]
@@ -57,10 +56,9 @@ impl Matrix {
         // Set the value at the calculated index.
         self.data[index] = value;
     }
-    
+
     // Adds another Matrix to this Matrix in place.
     pub fn add(&mut self, other: &Matrix) {
-
         // Ensure both matrices have the same dimensions before performing addition.
         assert_eq!(self.rows, other.rows);
         assert_eq!(self.cols, other.cols);
@@ -72,8 +70,7 @@ impl Matrix {
     }
 
     // Subtracts another Matrix from this Matrix in place.
-    pub fn sub(&mut self, other: &Matrix) { 
-
+    pub fn sub(&mut self, other: &Matrix) {
         // Ensure both matrices have the same dimensions before performing subtraction.
         assert_eq!(self.rows, other.rows);
         assert_eq!(self.cols, other.cols);

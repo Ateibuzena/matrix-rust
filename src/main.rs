@@ -1,56 +1,75 @@
-use the_matrix_rust::vector::Vector;
 use the_matrix_rust::matrix::Matrix;
+use the_matrix_rust::vector::Vector;
 
 fn main() {
-
     println!("Vectors:");
 
     let v = Vector::new(vec![4.0, 5.0, 6.0]);
+    println!("Vector v: {:?}", v.data);
+    println!("Vector v: {:?}", v);
 
-    let mut u = Vector::new(vec![1.0, 2.0, 3.0]);
-    u.add(&v);
-    println!("Result of u + v: {:?}", u.data);
-    println!("Result of u + v: {:?}", u);
+    let u = Vector::new(vec![1.0, 2.0, 3.0]);
+    println!("Vector u: {:?}", u.data);
+    println!("Vector u: {:?}", u);
 
-    let mut w = Vector::new(vec![7.0, 8.0, 9.0]);
-    w.sub(&v);
-    println!("Result of w - v: {:?}", w.data);
-    println!("Result of w - v: {:?}", w);
 
-    let mut z = Vector::new(vec![1.0, 2.0, 3.0]);
-    z.scl(2.0);
-    println!("Result of z * 2: {:?}", z.data);
-    println!("Result of z * 2: {:?}", z);
+    let mut result = u.clone();
+    
+    result.add(&v);
+    println!("Result of u + v: {:?}", result.data);
+    println!("Result of u + v: {:?}", result);
 
-    println!("\nMatrices:");
+    result = u.clone();
+    result.sub(&v);
+    println!("Result of u - v: {:?}", result.data);
+    println!("Result of u - v: {:?}", result);
 
-    let m = Matrix::new(2, 2, vec![1.0, 2.0, 3.0, 4.0]);
+    result = u.clone();
+    result.scl(2.0);
+    println!("Result of u * 2: {:?}", result.data);
+    println!("Result of u * 2: {:?}", result);
+
+    println!("\nMatrix:");
+
+    let mut m = Matrix::new(2, 2, vec![1.0, 2.0, 3.0, 4.0]);
     println!("Matrix m: {:?}", m.data);
     println!("Matrix m: {:?}", m);
+    println!("Matrix m :");
+    m.print();
 
-    let mut n = Matrix::new(2, 2, vec![5.0, 6.0, 7.0, 8.0]);
-    n.add(&m);
-    println!("Result of n + m: {:?}", n.data);
-    println!("Result of n + m: {:?}", n);
-
-    let mut p = Matrix::new(2, 2, vec![9.0, 10.0, 11.0, 12.0]);
-    p.sub(&m);
-    println!("Result of p - m: {:?}", p.data);
-    println!("Result of p - m: {:?}", p);
-
-    let mut q = Matrix::new(2, 2, vec![1.0, 2.0, 3.0, 4.0]);
-    q.scl(3.0);
-    println!("Result of q * 3: {:?}", q.data);
-    println!("Result of q * 3: {:?}", q);
+    m.scl(3.0);
+    println!("Result of m * 3: {:?}", m.data);
+    println!("Result of m * 3: {:?}", m);
+    println!("Matrix m :");
+    m.print();
 
     // set and get
-    let mut r = Matrix::new(2, 2, vec![1.0, 2.0, 3.0, 4.0]);
-    r.set(0, 1, 10.0);
-    let value = r.get(0, 1);
-    println!("After setting r[0][1] to 10.0: {:?}", value);
-    println!("After setting r[0][1] to 10.0: {:?}", r);
+    m.set(0, 1, 10.0);
+    let value = m.get(0, 1);
+    println!("After setting m[0][1] to 10.0: {:?}", value);
+    println!("After setting m[0][1] to 10.0: {:?}", m);
+    println!("Matrix m :");
+    m.print();
 
-    println!("Matrix r :");
-    r.print();
+    let n = Matrix::new(2, 2, vec![5.0, 6.0, 7.0, 8.0]);
+    println!("Matrix n: {:?}", n.data);
+    println!("Matrix n: {:?}", n);
+    println!("Matrix n :");
+    n.print();
+
+    let mut result = n.clone();
+
+    result.add(&m);
+    println!("Result of n + m: {:?}", result.data);
+    println!("Result of n + m: {:?}", result);
+    println!("Matrix result :");
+    result.print();
+
+    result = n.clone();
+    result.sub(&m);
+    println!("Result of n - m: {:?}", result.data);
+    println!("Result of n - m: {:?}", result);
+    println!("Matrix result :");
+    result.print();
 
 }

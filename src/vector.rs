@@ -4,7 +4,6 @@ pub struct Vector {
 }
 
 impl Vector {
-
     // Creates a new Vector with the given data.
     pub fn new(data: Vec<f32>) -> Self {
         Self { data }
@@ -12,7 +11,6 @@ impl Vector {
 
     // Adds another Vector to this Vector in place.
     pub fn add(&mut self, other: &Vector) {
-
         // Ensure both vectors have the same length before performing addition.
         assert_eq!(self.data.len(), other.data.len());
 
@@ -25,7 +23,6 @@ impl Vector {
 
     // Subtracts another Vector from this Vector in place.
     pub fn sub(&mut self, other: &Vector) {
-
         // Ensure both vectors have the same length before performing addition.
         assert_eq!(self.data.len(), other.data.len());
 
@@ -35,10 +32,10 @@ impl Vector {
             *a = *a - *b;
         }
     }
-    
+
     // Scales the Vector by a scalar value in place.
     pub fn scl(&mut self, scalar: f32) {
-       // Ensure the scalar is not zero.
+        // Ensure the scalar is not zero.
         assert!(scalar != 0.0);
 
         for value in &mut self.data {
