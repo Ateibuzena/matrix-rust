@@ -12,9 +12,8 @@ fn main() {
     println!("Vector u: {:?}", u.data);
     println!("Vector u: {:?}", u);
 
-
     let mut result = u.clone();
-    
+
     result.add(&v);
     println!("Result of u + v: {:?}", result.data);
     println!("Result of u + v: {:?}", result);
@@ -71,5 +70,4 @@ fn main() {
     println!("Result of n - m: {:?}", result);
     println!("Matrix result :");
     result.print();
-
 }
